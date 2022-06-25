@@ -5,8 +5,10 @@ Color whiteColor = Color(0xffFFFFFF);
 
 TextStyle titleTextStyle = GoogleFonts.poppins(
     color: whiteColor, fontWeight: FontWeight.bold, fontSize: 26);
+TextStyle titleProTextStyle = GoogleFonts.poppins(
+    color: Color(0xff007DFF), fontWeight: FontWeight.bold, fontSize: 26);
 TextStyle subTitleTextStyle = GoogleFonts.poppins(
-    color: Color(0xff897B8), fontWeight: FontWeight.w300, fontSize: 16);
+    color: Color(0xff89978B), fontWeight: FontWeight.w300, fontSize: 16);
 TextStyle planTextStyle = GoogleFonts.poppins(
     color: whiteColor, fontWeight: FontWeight.w500, fontSize: 14);
 TextStyle descTextStyle = GoogleFonts.poppins(
