@@ -5,37 +5,52 @@ void main() {
   runApp(PaymentApp());
 }
 
-class PaymentApp extends StatelessWidget {
+class PaymentApp extends StatefulWidget {
+  @override
+  State<PaymentApp> createState() => _PaymentAppState();
+}
+
+class _PaymentAppState extends State<PaymentApp> {
   @override
   Widget build(BuildContext context) {
+    Widget option() {
+      return GestureDetector(
+        child: Container(
+          padding: EdgeInsets.all(20),
+          margin: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: Colors.white)),
+        ),
+      );
+    }
+
+    Widget header() {
+      return Padding(
+        padding: const EdgeInsets.only(top: 50, left: 32, right: 32),
+        child: Column(
+          children: [
+            Center(
+                child:
+                    Image.asset('assets/sample.png', width: 267, height: 200)),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text('Upgrade to ', style: titleTextStyle),
+              Text('Pro', style: titleProTextStyle)
+            ]),
+            const SizedBox(height: 16),
+            Text('Go Unlock all features and build your own business bigger',
+                style: subTitleTextStyle, textAlign: TextAlign.center),
+          ],
+        ),
+      );
+    }
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          backgroundColor: Color(0xff04112F),
-          body: Padding(
-            padding: const EdgeInsets.only(top: 50, left: 32, right: 32),
-            child: Column(
-              children: [
-                Center(
-                    child: Image.asset('assets/sample.png',
-                        width: 267, height: 200)),
-                Padding(
-                  padding: const EdgeInsets.only(top: 50),
-                  child: Row(children: [
-                    Text('Upgrade to ', style: titleTextStyle),
-                    Text('Pro', style: titleProTextStyle)
-                  ]),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16),
-                  child: Text(
-                      'Go Unlock all features and build your own business bigger',
-                      style: subTitleTextStyle,
-                      textAlign: TextAlign.center),
-                ),
-              ],
-            ),
-          ),
-        ));
+            backgroundColor: Color(0xff04112F),
+            body: Column(
+              children: [header(), option(), option(), option()],
+            )));
   }
 }
