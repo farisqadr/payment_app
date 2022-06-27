@@ -11,16 +11,26 @@ class PaymentApp extends StatefulWidget {
 }
 
 class _PaymentAppState extends State<PaymentApp> {
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
-    Widget option() {
+    Widget option(int index) {
       return GestureDetector(
+        onTap: () {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
         child: Container(
           padding: EdgeInsets.all(20),
           margin: EdgeInsets.all(10),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: Colors.white)),
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(
+                color: selectedIndex == index
+                    ? Color(0xff007DFF)
+                    : Color(0xff4D5B70)),
+          ),
         ),
       );
     }
@@ -50,7 +60,7 @@ class _PaymentAppState extends State<PaymentApp> {
         home: Scaffold(
             backgroundColor: Color(0xff04112F),
             body: Column(
-              children: [header(), option(), option(), option()],
+              children: [header(), option(0), option(1), option(2)],
             )));
   }
 }
